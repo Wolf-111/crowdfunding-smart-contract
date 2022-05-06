@@ -1,16 +1,6 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.4;
 
-import "hardhat/console.sol";
-
-/*
-    1. Jill creates escrow SC, passing the project name, description, end date, and goal
-    2. Jill pays gas fee to deploy
-    3. Bob commits 1 ETH to project, locked in Jill's SC
-    4. Bob can cancel his commitment before end date
-    5. Once end date is reached, funds locked in Jill's SC are sent to Jill's personal wallet
-*/
-
 contract CrowdfundingEscrow {
     string public title;
     string public description;
@@ -39,7 +29,7 @@ contract CrowdfundingEscrow {
     }
 
     // Allow the funds committer to change their mind
-    function cancelCommitment(uint _amount) public payable {
+    function cancelCommitment(uint _amount) public {
         require(block.timestamp < endDate, "Error: Escrow is closed");
         require(commitmentAmounts[msg.sender] > 0, "Error: No commitment amount found");
         payable(msg.sender).transfer(_amount);
