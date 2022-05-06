@@ -32,6 +32,7 @@ contract CrowdfundingEscrow {
     function cancelCommitment(uint _amount) public {
         require(block.timestamp < endDate, "Error: Escrow is closed");
         require(commitmentAmounts[msg.sender] > 0, "Error: No commitment amount found");
+        commitmentAmounts[msg.sender] -= _amount;
         payable(msg.sender).transfer(_amount);
 
         // The goalAmount can be true but then change to false if
