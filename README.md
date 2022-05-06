@@ -1,15 +1,23 @@
-# Basic Sample Hardhat Project
+# Crowdfunding Smart Contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+## What is it?
+This is a simple smart contract that acts as an escrow account for crowdfunding projects.
 
-Try running some of the following tasks:
+## Deploying the smart contract
+- Anyone, let's say Bob, deploys the smart contract with the following constructor arguments - `(_title, _description, _endDate, _goalAmount)`
+- Title
+  - Title/name of the crowdfunding project
+- Description
+  - Description of the project
+- End Date
+  - The date when the escrow ends and the raised funds are transferred to the project creator (same as the deployer of the smart contract)
+- Goal Amount
+  - How much the project creator is trying to raise (in ETH)
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
-```
+## Features
+- `commitFunds()`
+  - A public, payable function that anyone can send ETH to. Once sent, it will be locked in until either the `endDate` is reached or they cancel their commitment
+- `cancelCommitment(uint _amount)`
+  - A public function that allows anyone to revoke their commitment or a portion of it (must already have a commitment greater than 0)
+- `closeEscrow()`
+  - A public function that can only be called when `block.timestamp >= endDate` (aka when the escrow period ends). Once successfully called, any funds held in escrow will get transferred to the deployer of the smart contract
