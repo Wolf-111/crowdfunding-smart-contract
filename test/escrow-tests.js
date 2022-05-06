@@ -13,7 +13,7 @@ describe("CrowdfundingEscrow", function () {
     contract = await CrowdfundingEscrow.deploy(
       "cool title",
       "desc here",
-      1651727028,
+      99999999999,
       10000
     );
   });
@@ -81,15 +81,4 @@ describe("CrowdfundingEscrow", function () {
       assert.isBelow(finalBalance, initialBalance);
     });
   });
-
-  // describe("closeEscrow()", () => {
-  //   it("contract funds transfer over to creator", async () => {
-  //     await contract.deployed();
-  //     await contract.commitFunds({ value: 10 });
-
-  //     const test = await contract.closeEscrow()
-  //     expect(4).to.throw(Error)
-      
-  //   });
-  // });
 });
