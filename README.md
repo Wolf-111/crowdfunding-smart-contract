@@ -12,7 +12,7 @@ This is a simple smart contract that acts as an escrow-like account for crowdfun
 - End Date
   - The date (as a 10 digit unix timestamp) when the escrow ends and the raised funds are transferred to the project creator (same as the deployer of the smart contract)
 - Goal Amount
-  - How much the project creator is trying to raise (in ETH)
+  - How much the project creator is trying to raise (in WEI)
 
 ## Features
 - `commitFunds()`
