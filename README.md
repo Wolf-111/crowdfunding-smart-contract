@@ -1,7 +1,7 @@
 # Crowdfunding Smart Contract
 
 ## What is it?
-This is a simple smart contract that acts as an escrow account for crowdfunding projects.
+This is a simple smart contract that acts as an escrow-like account for crowdfunding projects.
 
 ## Deploying the smart contract
 - Anyone, let's say Bob, deploys the smart contract with the following constructor arguments - `(_title, _description, _endDate, _goalAmount)`
