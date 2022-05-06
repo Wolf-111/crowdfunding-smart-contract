@@ -21,3 +21,7 @@ This is a simple smart contract that acts as an escrow-like account for crowdfun
   - A public function that allows anyone to revoke their commitment or a portion of it (must already have a commitment greater than 0)
 - `closeEscrow()`
   - A public function that can only be called when `block.timestamp >= endDate` (aka when the escrow period ends). Once successfully called, any funds held in escrow will get transferred to the deployer of the smart contract
+- `goalAmountAchieved`
+  - A public boolean that tells you if the fundraising goal has been achieved
+- `commitmentAmounts`
+  - A public (address => uint) mapping that allows you to check how much any given address has committed to the project
